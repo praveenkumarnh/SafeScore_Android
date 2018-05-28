@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "539143736693",
+    "firebase_url": "https://greetncare.firebaseio.com",
+    "project_id": "greetncare",
+    "storage_bucket": "greetncare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539143736693:android:bfaecd42869838df",
+        "android_client_info": {
+          "package_name": "io.praveen.safescore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539143736693-4sunn0bas56tvo84294m5a4fi068obui.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "539143736693-4sunn0bas56tvo84294m5a4fi068obui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYtqKbHZvzh4Kn5gmqLo2uMQjKpiUk_9Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
