@@ -53,7 +53,6 @@ public class MainActivity extends Fragment {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     SharedPreferences preferences;
-    Button scream;
     double lat1, lon1;
     LocationManager locationManager;
     TextView name;
@@ -79,7 +78,6 @@ public class MainActivity extends Fragment {
         away = view.findViewById(R.id.main_away);
         time = view.findViewById(R.id.main_time);
         police = view.findViewById(R.id.main_police);
-        scream = view.findViewById(R.id.scraem);
         name = view.findViewById(R.id.main_welcome);
         location = view.findViewById(R.id.main_location);
         threat = view.findViewById(R.id.main_threat);
@@ -112,32 +110,14 @@ public class MainActivity extends Fragment {
         }
         double distance = distance(lat, lat1, lon, lon1);
         mUser = mAuth.getCurrentUser();
+        name.setText("Welcome, " + mUser.getDisplayName() + ".");
         location.setText(lat1 + ", " + lon1);
-        /* scream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final MediaPlayer mp2 = MediaPlayer.create(MainActivity.this, R.raw.raw);
-                mp2.setLooping(true);
-                scream.setText("CLICK AGAIN TO SCREAM OUT LOUD");
-                scream.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View v) {
-                        if(mp2.isPlaying()) {
-                            mp2.pause();
-                            scream.setText("CLICK TO SCREAM OUT LOUD");
-                        } else {
-                            mp2.start();
-                            scream.setText("CLICK AGAIN TO TURN OFF");
-                        }
-                    }
-                });
-            }
-        }); */
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("HH:mm | dd/MM/yyyy", Locale.ENGLISH);
         String formattedDate = df.format(c.getTime());
         SimpleDateFormat df2 = new SimpleDateFormat("HH", Locale.ENGLISH);
         int mTime = Integer.valueOf(df2.format(c.getTime()));
-        time.setText(formattedDate);
+        time.setText(formattedDate+" ✅");
         DecimalFormat _numberFormat = new DecimalFormat("#0.0");
         float mDist = Float.parseFloat(_numberFormat.format((float) distance / 1000));
         new Json().execute("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat1 + "," + lon1 + "&radius=2000&type=police&key=AIzaSyDk4KZZhvvOxM9H6IgUDk1wPAY7MmYxMSo");
@@ -156,7 +136,6 @@ public class MainActivity extends Fragment {
             away.setText("SWEET, YOU ARE NEAR YOUR HOME!");
             away.setTextColor(getResources().getColor(R.color.colorGreen));
         }
-        name.setText("Welcome " + mUser.getDisplayName() + "!");
     }
 
     public static double distance(double lat1, double lat2, double lon1, double lon2) {

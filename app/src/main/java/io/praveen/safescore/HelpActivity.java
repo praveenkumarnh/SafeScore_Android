@@ -1,8 +1,10 @@
 package io.praveen.safescore;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -34,7 +36,7 @@ public class HelpActivity extends Fragment {
         police = view.findViewById(R.id.call_police);
         parent = view.findViewById(R.id.call_parents);
         us = view.findViewById(R.id.call_dev);
-        scream = view.findViewById(R.id.scraem);
+        scream = view.findViewById(R.id.scream);
     }
 
     @Override
@@ -44,7 +46,7 @@ public class HelpActivity extends Fragment {
         police.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "112", null)));
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "102", null)));
             }
         });
         parent.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +66,8 @@ public class HelpActivity extends Fragment {
             public void onClick(View v) {
                 final MediaPlayer mp2 = MediaPlayer.create(getActivity(), R.raw.raw);
                 mp2.setLooping(true);
+                AudioManager am = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+                am.setStreamVolume(AudioManager.STREAM_MUSIC, am.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
                 scream.setText("CLICK AGAIN TO SCREAM OUT LOUD");
                 scream.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v) {

@@ -76,7 +76,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/scraem"
+            android:id="@+id/scream"
             android:text="@string/tap_twice_to_scream_out_loud"
             android:textColor="#FFFFFF"
             android:backgroundTint="@color/colorAccent"

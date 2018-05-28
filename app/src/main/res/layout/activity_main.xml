@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FFFFFF"
+    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="io.praveen.safescore.MainActivity">
@@ -19,177 +19,230 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="28dp"
-            android:layout_marginEnd="32dp"
             android:orientation="vertical">
 
-            <pl.droidsonroids.gif.GifImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:layout_height="wrap_content">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="64dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/welcome" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:text="@string/welcome"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:id="@+id/main_welcome"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:text="We strongly recommend you to keep Mobile Data and Location Services in the Active/ON state." />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:id="@+id/main_time"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:text="@string/time" />
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/welcome" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="48dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/house" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="32dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/main_away"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorAccent"
+                            android:text="@string/away_from_home_by_x_kms"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:id="@+id/main_location"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@string/lat_long" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="48dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/siren" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="32dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:text="NEARBY THREAT STATUS"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:id="@+id/main_threat"
+                            android:text="@string/loading"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="48dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/police" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="32dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:text="NEARBY POLICE STATION"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:id="@+id/main_police"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@string/loading" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="@string/welcome"
-                android:textSize="18sp"
+                android:layout_marginTop="32dp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/main_welcome"
-                android:textColor="#000000"/>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:id="@+id/main_away"
-                android:textStyle="bold"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/colorAccent"
-                android:text="@string/away_from_home_by_x_kms"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:paddingEnd="8dp"
-                    android:textAlignment="textEnd"
-                    android:text="@string/current_time"
-                    android:layout_weight="1"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:paddingStart="8dp"
-                    android:id="@+id/main_time"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_weight="1"
-                    android:text="@string/time"
-                    tools:ignore="RtlSymmetry" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:paddingEnd="8dp"
-                    android:textAlignment="textEnd"
-                    android:text="@string/current_location"
-                    android:layout_weight="1"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:paddingStart="8dp"
-                    android:id="@+id/main_location"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_weight="1"
-                    android:text="@string/lat_long"
-                    tools:ignore="RtlSymmetry" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:paddingEnd="8dp"
-                    android:textAlignment="textEnd"
-                    android:text="@string/threat_nearby"
-                    android:layout_weight="1"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:paddingStart="8dp"
-                    android:id="@+id/main_threat"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_weight="1"
-                    android:text="@string/loading"
-                    tools:ignore="RtlSymmetry" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:paddingEnd="8dp"
-                    android:textAlignment="textEnd"
-                    android:text="@string/is_police_near"
-                    android:layout_weight="1"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:paddingStart="8dp"
-                    android:id="@+id/main_police"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_weight="1"
-                    android:text="@string/loading"
-                    tools:ignore="RtlSymmetry" />
-
-            </LinearLayout>
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:text="IN CASE OF EMERGENCY,\nTAP THE STATION NAME TO NAVIGATE\n(OR) SWIPE LEFT FOR HELP ZONE"/>
 
         </LinearLayout>
 
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/scraem"
-            android:text="@string/tap_twice_to_scream_out_loud"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="@color/colorAccent"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

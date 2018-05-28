@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                         final DatabaseReference rOut = ref.child("Time Out");
                                         final DatabaseReference rBack = ref.child("Time Back");
                                         final DatabaseReference rParent = ref.child("Parent Name");
-                                        final DatabaseReference dNumber = ref.child("Parent Mobile");
+                                        final DatabaseReference rNumber = ref.child("Parent Mobile");
                                         final DatabaseReference rLon = ref.child("Longitude");
                                         final SharedPreferences.Editor editor = preferences.edit();
                                         rLat.addValueEventListener(new ValueEventListener() {
@@ -96,10 +96,10 @@ public class LoginActivity extends AppCompatActivity {
                                                                             @Override
                                                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                                 editor.putString("parent", dataSnapshot.getValue(String.class));
-                                                                                rOut.addValueEventListener(new ValueEventListener() {
+                                                                                rNumber.addValueEventListener(new ValueEventListener() {
                                                                                     @Override
                                                                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                                                        editor.putString("number", String.valueOf(dataSnapshot.getValue(Long.class)));
+                                                                                        editor.putString("number", dataSnapshot.getValue(String.class));
                                                                                         editor.apply();
                                                                                         pb.setVisibility(View.INVISIBLE);
                                                                                         startActivity(i1);
