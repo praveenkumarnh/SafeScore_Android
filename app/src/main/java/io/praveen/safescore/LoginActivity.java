@@ -170,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ActivityCompat.requestPermissions(LoginActivity.this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_CALL_LOG, Manifest.permission.BATTERY_STATS}, 11);
+        ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.BATTERY_STATS}, 12);
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, MainFragment.class));
             finish();
@@ -185,6 +186,15 @@ public class LoginActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 11: {
+                b = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                b = grantResults.length > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                b = grantResults.length > 0 && grantResults[2] == PackageManager.PERMISSION_GRANTED;
+                b = grantResults.length > 0 && grantResults[3] == PackageManager.PERMISSION_GRANTED;
+                b = grantResults.length > 0 && grantResults[4] == PackageManager.PERMISSION_GRANTED;
+                if (!b) Toast.makeText(LoginActivity.this, "You must accept all permission requests to continue!", Toast.LENGTH_SHORT).show();
+            }
+                
+            case 12: {
                 b = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
                 b = grantResults.length > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED;
                 b = grantResults.length > 0 && grantResults[2] == PackageManager.PERMISSION_GRANTED;
