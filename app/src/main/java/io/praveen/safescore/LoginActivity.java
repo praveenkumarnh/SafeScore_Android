@@ -196,10 +196,6 @@ public class LoginActivity extends AppCompatActivity {
                 
             case 12: {
                 b = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                b = grantResults.length > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                b = grantResults.length > 0 && grantResults[2] == PackageManager.PERMISSION_GRANTED;
-                b = grantResults.length > 0 && grantResults[3] == PackageManager.PERMISSION_GRANTED;
-                b = grantResults.length > 0 && grantResults[4] == PackageManager.PERMISSION_GRANTED;
                 if (!b) Toast.makeText(LoginActivity.this, "You must accept all permission requests to continue!", Toast.LENGTH_SHORT).show();
             }
         }
